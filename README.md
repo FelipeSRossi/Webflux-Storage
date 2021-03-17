@@ -14,6 +14,6 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
  Postman documentation is available at : https://documenter.getpostman.com/view/14969236/Tz5s5xNu
  
  
- When the project is compiled, the Swagger documentation is generated at :http://localhost:[port used by dynamoDB]/swagger-ui-reactive-api.html
+ When the project is compiled, the Swagger documentation is generated at :http://localhost: [port used by dynamoDB] /swagger-ui-reactive-api.html
  
 
