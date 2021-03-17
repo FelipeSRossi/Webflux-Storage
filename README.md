@@ -4,7 +4,8 @@ An API for storing characters from all sorts of media. Made for the DIO Inter Ja
 
 to run it, download the local version of DynamoDB and with a command prompt opened on the download directory, do:
 
-``` java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+```
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
  
  aws dynamodb list-tables --endpoint-url http://localhost:8000
  
