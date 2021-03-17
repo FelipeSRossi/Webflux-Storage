@@ -11,23 +11,23 @@ import reactor.core.publisher.Mono;
 public class MainService {
     private final MainRepository mainRepository;
 
-    public MainService(MainRepository mainRepository){
-        this.mainRepository=mainRepository;
+    public MainService(MainRepository mainRepository) {
+        this.mainRepository = mainRepository;
     }
 
-    public Flux<Character> findAll(){
+    public Flux<Character> findAll() {
         return Flux.fromIterable(this.mainRepository.findAll());
     }
 
-    public Mono<Character> findByIdCharacter(String id){
+    public Mono<Character> findByIdCharacter(String id) {
         return Mono.justOrEmpty(this.mainRepository.findById(id));
     }
 
-    public Mono<Character> save(Character character){
+    public Mono<Character> save(Character character) {
         return Mono.justOrEmpty(this.mainRepository.save(character));
     }
 
-    public Mono<Boolean> deleteByIdCharacter(String id){
+    public Mono<Boolean> deleteByIdCharacter(String id) {
         mainRepository.deleteById(id);
         return Mono.just(true);
 

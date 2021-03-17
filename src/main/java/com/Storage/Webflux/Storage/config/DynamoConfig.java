@@ -31,16 +31,16 @@ public class DynamoConfig {
     private String amazonAWSSecretKey;
 
     @Bean
-    public AmazonDynamoDB amazonDynamoDB(){
+    public AmazonDynamoDB amazonDynamoDB() {
         AmazonDynamoDB amazonDynamoDB;
 
-        if(StringUtils.hasLength(amazonDynamoDBEndpoint)) {  // isEmpty is Deprecated, replaced by hasLength
+        if (StringUtils.hasLength(amazonDynamoDBEndpoint)) {  // isEmpty is Deprecated, replaced by hasLength
             amazonDynamoDB = AmazonDynamoDBClientBuilder.standard()
                     .withCredentials(new AWSStaticCredentialsProvider(amazonAWSCredentials()))
                     .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ENDPOINT_DYNAMO, REGION_DYNAMO))
                     .build();
 
-        }else{
+        } else {
             amazonDynamoDB = AmazonDynamoDBClientBuilder.standard()
                     .withCredentials(new AWSStaticCredentialsProvider(amazonAWSCredentials()))
                     .build();
@@ -50,7 +50,7 @@ public class DynamoConfig {
     }
 
     @Bean
-    public AWSCredentials amazonAWSCredentials(){
+    public AWSCredentials amazonAWSCredentials() {
         return new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey);
     }
 }

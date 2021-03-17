@@ -33,32 +33,31 @@ import static com.Storage.Webflux.Storage.constants.MainConstants.REGION_DYNAMO;
 
 
 public class MainData {
-    public static void main (String [] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ENDPOINT_DYNAMO, REGION_DYNAMO))
                 .build();
 
 
-
         DynamoDB dynamoDB = new DynamoDB(client);
 
-        Table table = dynamoDB.getTable( "Main_Table");
+        Table table = dynamoDB.getTable("Main_Table");
         Item character = new Item()
                 .withPrimaryKey("id", "1")
                 .withString("name", "Mr 1")
-                .withString( "franchise", "One Piece")
+                .withString("franchise", "One Piece")
                 .withString("alignment", "Lawful Evil");
 
         Item character2 = new Item()
                 .withPrimaryKey("id", "2")
                 .withString("name", "Aslan")
-                .withString( "franchise", "The Chronicles of Narnia")
+                .withString("franchise", "The Chronicles of Narnia")
                 .withString("alignment", "Lawful Good");
 
         Item character3 = new Item()
                 .withPrimaryKey("id", "3")
                 .withString("name", "Godzilla")
-                .withString( "franchise", "Godzilla")
+                .withString("franchise", "Godzilla")
                 .withString("alignment", "Chaotic Neutral");
 
         PutItemOutcome outcome1 = table.putItem(character);

@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
+
 import static com.Storage.Webflux.Storage.constants.MainConstants.MAIN_ENDPOINT_LOCAL;
 
 
@@ -22,43 +23,43 @@ import static com.Storage.Webflux.Storage.constants.MainConstants.MAIN_ENDPOINT_
 @SpringBootTest
 public class WebfluxStorageApplicationTests {
 
-	@Autowired
-	WebTestClient webTestClient;
+    @Autowired
+    WebTestClient webTestClient;
 
-	@Autowired
-	MainRepository mainRepository;
-
-
-	@Test
-	public void getOneCharacterById(){
-
-		webTestClient.get().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"),"3")
-				.exchange()
-				.expectStatus().isOk()
-				.expectBody();
+    @Autowired
+    MainRepository mainRepository;
 
 
-	}
+    @Test
+    public void getOneCharacterById() {
 
-	@Test
-	public void getOneCharacterNotFound(){
-
-		webTestClient.get().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"),"10")
-				.exchange()
-				.expectStatus().isNotFound();
-
-	}
+        webTestClient.get().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"), "3")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody();
 
 
-	@Test
-	public void deleteCharacter(){
+    }
 
-		webTestClient.delete().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"),"1")
-				.accept(MediaType.APPLICATION_JSON)
-				.exchange()
-				.expectStatus().isNotFound()
-				.expectBody(Void.class);
+    @Test
+    public void getOneCharacterNotFound() {
 
-	}
+        webTestClient.get().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"), "10")
+                .exchange()
+                .expectStatus().isNotFound();
+
+    }
+
+
+    @Test
+    public void deleteCharacter() {
+
+        webTestClient.delete().uri(MAIN_ENDPOINT_LOCAL.concat("/{id}"), "1")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectBody(Void.class);
+
+    }
 
 }

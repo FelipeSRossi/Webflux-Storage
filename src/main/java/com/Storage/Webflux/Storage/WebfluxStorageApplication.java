@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableDynamoDBRepositories
 public class WebfluxStorageApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(WebfluxStorageApplication.class, args);
-		System.out.println("Webflux API");
-	}
+        SpringApplication.run(WebfluxStorageApplication.class, args);
+        System.out.println("Webflux API");
+    }
 
 }
